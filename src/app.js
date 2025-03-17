@@ -7,10 +7,10 @@ const app = express();
 // 🌍 Enable CORS (Cross-Origin Resource Sharing)
 // Allows frontend to communicate with backend (if they are on different domain)
 app.use(
-    cors({
-        origin: process.env.CORS_ORIGIN,
-        credentials: true, // allow cookies
-    })
+  cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true, // allow cookies
+  })
 );
 
 // 📝 Middleware to parse incoming JSON data (API requests)
@@ -18,9 +18,9 @@ app.use(
 // - Example: { "name": "John", "age": 25 }
 // - Without this, req.body will be undefined for JSON requests
 app.use(
-    express.json({
-        limit: "16kb",
-    })
+  express.json({
+    limit: "16kb",
+  })
 );
 
 // 🔗 Middleware to parse URL-encoded form data
@@ -29,10 +29,10 @@ app.use(
 // - Converts form data into a JavaScript object: { name: "John", age: "25" }
 // - `extended: true` allows parsing of nested objects (e.g., { user: { name: "John" } })
 app.use(
-    express.urlencoded({
-        extended: true,
-        limit: "16kb",
-    })
+  express.urlencoded({
+    extended: true,
+    limit: "16kb",
+  })
 );
 
 // 📂 Serve static files from the "public" directory

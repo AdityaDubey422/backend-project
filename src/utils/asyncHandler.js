@@ -1,11 +1,9 @@
 // higher order function to handle async errors in Express routes and avoid repetitive try-catch blocks
 const asyncHandler = (requestHandler) => {
-    return (req, res, next) => {
-        // Ensures that any rejected promise is caught and passed to Express error handler
-        Promise.resolve(requestHandler(req, res, next)).catch((err) =>
-            next(err)
-        );
-    };
+  return (req, res, next) => {
+    // Ensures that any rejected promise is caught and passed to Express error handler
+    Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
+  };
 };
 
 export default asyncHandler;
