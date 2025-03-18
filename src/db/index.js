@@ -6,8 +6,15 @@ const connectDB = async () => {
     const connectionInstance = await mongoose.connect(
       `${process.env.MONGODB_URI}/${DB_NAME}`
     );
+    console.log(connectionInstance)
     console.log(
-      `\n MongoDB connected!! DB HOST: ${connectionInstance.connection.host}`
+      `\n MongoDB connected!! DB HOST: ${connectionInstance.connection.host}`,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        ssl: true, // Ensure SSL is enabled
+        tsl: true,
+      }
     );
   } catch (error) {
     console.log(`MongoDB connection FAILED: ${error}`);
@@ -16,3 +23,4 @@ const connectDB = async () => {
 };
 
 export default connectDB;
+
