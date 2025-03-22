@@ -191,6 +191,8 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
     throw new ApiError(401, "Unauthorized request");
   }
 
+  console.log(incomingRefreshToken)
+
   const decodedToken = jwt.verify(
     incomingRefreshToken,
     process.env.REFRESH_TOKEN_SECRET
@@ -209,14 +211,17 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
     user._id
   );
 
+
   return res
     .status(200)
     .cookie("accessToken", accessToken, options)
     .cookie("refreshToken", newRefreshToken, options)
     .json(
-      200,
-      { accessToken, newRefreshTokenefreshToken },
-      "Access token refreshed"
+      new ApiResponse(
+        200,
+        { accessToken, newRefreshToken },
+        "Access token refreshed"
+      )
     );
 });
 
@@ -433,7 +438,15 @@ const getWatchHistory = asyncHandler(async (req, res) => {
       },
     },
   ]);
-  return res.status(200).json(new ApiResponse(200,user[0].watchHistory,"Watch history fetched successfully"))
+  return res
+    .status(200)
+    .json(
+      new ApiResponse(
+        200,
+        user[0].watchHistory,
+        "Watch history fetched successfully"
+      )
+    );
 });
 
 export {

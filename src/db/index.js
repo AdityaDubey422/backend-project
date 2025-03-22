@@ -7,13 +7,7 @@ const connectDB = async () => {
       `${process.env.MONGODB_URI}/${DB_NAME}`
     );
     console.log(
-      `\n MongoDB connected!! DB HOST: ${connectionInstance.connection.host}`,
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        ssl: true, // Ensure SSL is enabled
-        tsl: true,
-      }
+      `\n MongoDB connected!! DB HOST: ${connectionInstance.connection.host}`
     );
   } catch (error) {
     console.log(`MongoDB connection FAILED: ${error}`);
@@ -22,4 +16,3 @@ const connectDB = async () => {
 };
 
 export default connectDB;
-

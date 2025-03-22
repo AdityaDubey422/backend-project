@@ -6,7 +6,7 @@
 
 
 # 02
-## Then we learned how to connect databse..with mongoose.connnect and giving the databse URI/Databse name and it takes time to connect to DB because DB is in another continent so async await try catch sab lagao catch me process.exit(1) kardo
+## Then we learned how to connect databse..with mongoose.connnect and giving the databse URI/Databse name and it takes time to connect to DB because DB is in another continent so async await try catch sab lagao catch me process.exit(1) kardo (1 mwans fail and 0 means success)
 
 
 # 03
